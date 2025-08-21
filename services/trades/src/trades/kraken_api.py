@@ -1,7 +1,9 @@
 import json
+
+from loguru import logger
 from pydantic import BaseModel
 from websocket import create_connection
-from loguru import logger
+
 
 class Trade(BaseModel):
     product_id: str
@@ -17,8 +19,8 @@ class KrakenAPI:
     URL = 'wss://ws.kraken.com/v2'
 
     def __init__(
-            self,
-            product_ids: list[str],
+        self,
+        product_ids: list[str],
     ):
         self.product_ids = product_ids
 
@@ -28,9 +30,7 @@ class KrakenAPI:
         # subscribe to the websocket
         self._subscribe(product_ids)
 
-
     def get_trades(self) -> list[Trade]:
-        
         # receive the data from the websocket
         data: str = self._ws_client.recv()
 
@@ -44,13 +44,13 @@ class KrakenAPI:
         except json.JSONDecodeError as e:
             logger.error(f'Error decoding JSON: {e}')
             return []
-        
+
         try:
             trades_data = data['data']
         except KeyError as e:
             logger.error(f'No `data` field with trades in the message {e}')
             return []
-        
+
         # Method 1 to create a list of trades
         # Naive implementation
         # trades = []
@@ -67,19 +67,19 @@ class KrakenAPI:
         # Method 2 to create a list of trades
         # Using list comprehension (this is faster)
         trades = [
-           Trade(
-                    product_id=trade['symbol'],
-                    price=trade['price'],
-                    quantity=trade['qty'],
-                    timestamp=trade['timestamp'],
-                )
+            Trade(
+                product_id=trade['symbol'],
+                price=trade['price'],
+                quantity=trade['qty'],
+                timestamp=trade['timestamp'],
+            )
             for trade in trades_data
         ]
 
         # breakpoint()
 
         return trades
-    
+
     def _subscribe(self, product_ids: list[str]):
         """
         Subscribes to the websocket and waits for the initial snapshot.
@@ -97,7 +97,7 @@ class KrakenAPI:
                 }
             )
         )
-        
+
         # discard the first 2 messages for each product_id
         # as they contain no trade data
         for _ in product_ids:

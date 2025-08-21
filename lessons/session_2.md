@@ -8,14 +8,14 @@
 
 - [x] Extract config parameters with pydantic-settings
 
-- [ ] Automatic code linting and formatting with ruff and pre-commit
+- [x] Automatic code linting and formatting with ruff and pre-commit
     - [x] Install ruff and precommit -> 
     ```
     uv tool install ruff@latest
     uv tool install pre-commit@latest
     ```
-    - [ ] Set our precommit hooks
-    - [ ] Test it works
+    - [x] Set our precommit hooks
+    - [x] Test it works
 
 
 Dev container into the cluster

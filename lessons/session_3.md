@@ -15,5 +15,10 @@ Can either be build by yourself of aws EKS
 
 Interact with different cluster - dev, prod using kubectl. We want to make sure we interact with the right cluster
 
-
+kafka - borker - 1 replica - 2 partition
+consumer group
 Kafka message/keys -> Kafka partition
+
+## Challenges
+
+- Instead of having one Dockerfile for each service, write a single Dockerfile that builds both services.

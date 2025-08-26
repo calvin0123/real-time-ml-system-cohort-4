@@ -25,15 +25,12 @@ def run(kafka_broker_address: str, kafka_topic_name: str, kraken_api: KrakenAPI)
                 # 2. Serialize an event using the defined Topic
                 message = topic.serialize(
                     # key=event["id"],
-                    value=event.to_dict()
+                    key=event.product_id,
+                    value=event.to_dict(),
                 )
 
                 # 3. Produce a message into the Kafka topic
-                producer.produce(
-                    topic=topic.name,
-                    value=message.value,
-                    # key=message.key
-                )
+                producer.produce(topic=topic.name, value=message.value, key=message.key)
 
                 logger.info(f'Produced message to topic {topic.name}')
                 logger.info(f'Trade {event.to_dict()} pushed to Kafa')

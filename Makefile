@@ -1,16 +1,33 @@
+############################################################
+## Development
+############################################################
+
 # Runs the trades services as a standalone Python app (not Dockerized)
 dev:
 	uv run services/${service}/src/${service}/main.py
 
-push:
+push-for-dev:
 	kind load docker-image ${service}:dev --name rwml-34fa 
 
-build:
+build-for-dev:
 	docker build -t ${service}:dev -f docker/${service}.Dockerfile .
 
-deploy: build push
+deploy-for-dev: build-for-dev push-for-dev
 	kubectl delete -f deployments/dev/${service}/${service}.yaml --ignore-not-found=true
 	kubectl apply -f deployments/dev/${service}/${service}.yaml
+
+############################################################
+## Production
+############################################################
+
+build-and-push-for-prod:
+	export BUILD_DATE=$(date +%s) && \
+	docker buildx build --push --platform linux/amd64 -t ghcr.io/calvin0123/${service}:0.1.1-beta.${BUILD_DATE} -f docker/${service}.Dockerfile .
+
+deploy-for-prod:
+	kubectl delete -f deployments/prod/${service}/${service}.yaml --ignore-not-found=true
+	kubectl apply -f deployments/prod/${service}/${service}.yaml
+
 
 lint:
 	ruff check . --fix 

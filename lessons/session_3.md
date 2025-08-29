@@ -13,6 +13,7 @@
     - [ ] trigger the deployment manually with `kubectl apply -f deployments/prod/candles.yaml`
 
 - [ ] Build boillerate for the `technical indicator` service
+    - [ ] Install talib C library 
 
 Just know how to interact with Kubernetes
 Can either be build by yourself of aws EKS
@@ -25,6 +26,10 @@ Interact with different cluster - dev, prod using kubectl. We want to make sure 
 kafka - borker - 1 replica - 2 partition
 consumer group
 Kafka message/keys -> Kafka partition
+
+if we can have this `KUBECONFIG`, which is the kubernetes cluster that other people can provide. 
+We don't need to create from scratch. There is cloud provide already spin up the kubernetes for us.
+The only thing we need is the config file (aka kubernetes cluster) that cloud provider built for us.
 
 ## Challenges
 

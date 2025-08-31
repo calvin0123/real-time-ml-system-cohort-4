@@ -47,14 +47,3 @@ if __name__ == '__main__':
         kafka_broker_address=config.kafka_broker_address,
         kafka_output_topic=config.kafka_output_topic,
     )
-
-    # news_source = NewsDataSource(
-    #     news_downloader=NewsDownloader(cryptopanic_api_key='f4bbf7ac341febbe34420975e296503043a2fe10'),
-    #     polling_interval_sec=10,
-    # )
-
-    # run(
-    #     news_source=news_source,
-    #     kafka_broker_address='localhost:31234',
-    #     kafka_output_topic='news',
-    # )

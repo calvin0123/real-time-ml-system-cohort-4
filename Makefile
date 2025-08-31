@@ -27,6 +27,7 @@ scale-up:
 	kubectl scale deployment technical-indicators --replicas=1
 
 
+# port forwarding: kubectl -n kafka port-forward svc/kafka-ui 8182:8080    
 ############################################################
 ## Production
 ############################################################

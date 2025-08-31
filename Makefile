@@ -16,6 +16,17 @@ deploy-for-dev: build-for-dev push-for-dev
 	kubectl delete -f deployments/dev/${service}/${service}.yaml --ignore-not-found=true
 	kubectl apply -f deployments/dev/${service}/${service}.yaml
 
+scale-down:
+	kubectl scale deployment trades --replicas=0
+	kubectl scale deployment candles --replicas=0
+	kubectl scale deployment technical-indicators --replicas=0
+
+scale-up:
+	kubectl scale deployment trades --replicas=1
+	kubectl scale deployment candles --replicas=2
+	kubectl scale deployment technical-indicators --replicas=1
+
+
 ############################################################
 ## Production
 ############################################################

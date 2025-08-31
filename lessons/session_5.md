@@ -1,8 +1,8 @@
 ## 1. Goals
 
-- [ ] Build the technical indicators service.
-- [ ] Dockerize the technical indicators sevice by install the talib
-- [ ] Deploy to the Kubernetes cluster
+- [x] Build the technical indicators service.
+- [x] Dockerize the technical indicators sevice by install the talib
+- [x] Deploy to the Kubernetes cluster
 - [ ] Kafka to the Risingwave database
 
 ## Learning

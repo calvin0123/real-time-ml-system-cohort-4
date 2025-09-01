@@ -12,7 +12,7 @@ class SentimentScores {
 
 // Create a function to extract the resume from a string.
 function ExtractSentimentScores(news: string) -> SentimentScores {
-  client CustomGPT4o // Make sure to set the ANTHROPIC_API_KEY as environment variable
+  client ClaudeOpus4 // Make sure to set the ANTHROPIC_API_KEY as environment variable
   prompt #"
     You are an expert crypto financial analyst with deep knowledge of market dynamics
     and sentiment analysis. Analyze the following news story and determine its potential

@@ -2,8 +2,8 @@ import os
 from typing import Literal, Optional
 
 from baml_py import ClientRegistry
+from opik import track
 
-# from opik import track
 from news_sentiment.baml_client.sync_client import b
 from news_sentiment.baml_client.types import SentimentScores
 
@@ -57,7 +57,7 @@ class SentimentExtractor:
 
         return cr
 
-    # @track
+    @track
     def extract_sentiment_scores(self, news: str) -> SentimentScores:
         """
         Extracts the sentiment scores for the given news.

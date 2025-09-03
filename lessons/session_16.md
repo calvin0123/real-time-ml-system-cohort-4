@@ -10,7 +10,15 @@
 - [x] Evaluate  - Create a golden dataset with (input, expected_output) pairs using historical news from [here](https://github.com/soheilrahsaz/cryptoNewsDataset.git)
     - Keep golden dataset, monitor the result
     - oplik - Create the dataset to track the output from the LLM
+- [x] Add a tricky example to the dataset
+- [ ] how to curate the dataset with a human in the loop
+    - You could use a full blown solution that allows collaborative work among several human reviewers like [Argila](https://argilla.io/)
 
+    or 
+
+    you can follow a pool man's approach and use the CLI we will build.
+
+    
 ## Learning
 baml cli -> transform to python code
 

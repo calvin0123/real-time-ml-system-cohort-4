@@ -27,4 +27,4 @@ evaluate-tricky-example:
 	uv run src/news_sentiment/evaluate.py \
     --dataset_name news-sentiment-dataset-live \
     --model $(MODEL) \
-    --dataset_item_id 01973aa3-7594-7d37-8a12-0962cc06b298
+    --dataset_item_id 01990db7-c4c4-7032-baf1-6cdb51d419c0

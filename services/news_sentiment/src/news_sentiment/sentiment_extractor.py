@@ -1,6 +1,7 @@
 import os
 from typing import Literal, Optional
 
+# from loguru import logger
 from baml_py import ClientRegistry
 from opik import track
 
@@ -15,9 +16,9 @@ class SentimentExtractor:
         self.model = model
         self.base_url = base_url
 
-        # model_provider, model_name = model.split('/')
+        model_provider, model_name = model.split('/')
         # logger.debug(f'Model provider: {model_provider}, model name: {model_name}')
-        # self._client_registry = self._init_client_registry(model_provider, model_name)
+        self._client_registry = self._init_client_registry(model_provider, model_name)
 
     def _init_client_registry(
         self, model_provider: Literal['anthropic', 'openai-generic'], model_name: str

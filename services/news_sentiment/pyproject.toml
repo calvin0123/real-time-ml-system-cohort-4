@@ -1,0 +1,19 @@
+[project]
+name = "news_sentiment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Calvin Chen", email = "calvinchen0123@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "baml-py>=0.206.1",
+    "fire>=0.7.1",
+    "opik>=1.8.37",
+    "tqdm>=4.67.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.5,<0.9.0"]
+build-backend = "uv_build"

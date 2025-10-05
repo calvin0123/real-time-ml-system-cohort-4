@@ -64,12 +64,13 @@ class SentimentExtractor:
         Extracts the sentiment scores for the given news.
         """
         return b.ExtractSentimentScores(
-            news  # , {'client_registry': self._client_registry}
+            news, {'client_registry': self._client_registry}
         )
 
 
 if __name__ == '__main__':
-    sentiment_extractor = SentimentExtractor(model='CustomSonnet4')
+    # sentiment_extractor = SentimentExtractor(model='anthropic/CustomSonnet4')
+    sentiment_extractor = SentimentExtractor(model='openai-generic/CustomGPT4o')
     print(
         sentiment_extractor.extract_sentiment_scores(
             'Goldman Sachs is about to buy 1B in Bitcoin, and sell 1B in Ethereum.'

@@ -8,6 +8,10 @@
     - [DSpy](https://github.com/stanfordnlp/dspy)
 - [ ] Integrate `SentimentExtractor` with Ollama OS models.
     - [x] Download `ollama` 
+- [x] Try deepseek-r:1:7b, deepseek-r1:8b
+- [ ] Dockerize and deploy to local Kubernetes cluster
+    - [ ] Dockerize and deploy the `news` service
+    - [ ] Dockerize and deploy the `news-sentiment` service
 
 
 ### how to evaluate on a single example using ollama
